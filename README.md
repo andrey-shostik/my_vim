@@ -3,5 +3,4 @@
 
 # Reqiure powerline fonts
 `cd ~/.vim/.fonts && mv * ~/.fonts/ && rm -fr ~/.vim/.fonts`
-
-# go gvim in terminal and do `:PluginInstall`
+go run gvim in terminal and do `:PluginInstall`
