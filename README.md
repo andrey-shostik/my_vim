@@ -2,5 +2,5 @@
 `git clone https://github.com/andrey9828/my_vim.git ~/.vim`
 
 # Reqiure powerline fonts
-`cd ~/.vim/.fonts && mv * ~/.fonts/ && rm -fr ~/.vim/.fonts`
+`cd ~/.vim/.fonts && mv * ~/.fonts/ && rm -fr ~/.vim/.fonts` </br>
 go run gvim in terminal and do `:PluginInstall`
