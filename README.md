@@ -1,8 +1,6 @@
-## Install vim
-`sudo apt-get install vim-gtk`
-
-## Clone vundle with vimrc and Reqiure powerline fonts
-`git clone https://github.com/andrey9828/my_vim.git ~/.vim && cd ~/.vim/.fonts && mv * ~/.fonts/ && rm -fr ~/.vim/.fonts` </br>
+## Installation
+     sudo apt-get install vim-gtk
+     git clone https://github.com/andrey9828/my_vim.git ~/.vim && cd ~/.vim/.fonts && mv * ~/.fonts/ && rm -fr ~/.vim/.fonts </br>
 </br>
 `:PluginInstall` in your vim
 
@@ -17,5 +15,3 @@
      sudo apt-get install ctags wmctrl
 
 Open vim and run next command: `PlugInstall`
-
-[![endorse](http://api.coderwall.com/galulex/endorsecount.png)](http://coderwall.com/galulex)
