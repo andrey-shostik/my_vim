@@ -23,11 +23,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'ervandew/supertab'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'honza/vim-snippets'
-Plugin 'xolox/vim-shell'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'slim-template/vim-slim'
-Plugin 'crusoexia/vim-monokai'
 
 call vundle#end()
 filetype plugin indent on
@@ -57,7 +54,7 @@ set laststatus=2
 set linespace=2
 
 set guifont=Inconsolata-gforPowerline\ 11
-"set background=dark
+set background=dark
 "colorscheme luna
 colorscheme molokai
 "colorscheme vimbrant
@@ -65,6 +62,7 @@ colorscheme molokai
 "colorscheme vimbrant
 "colorscheme solarized
 "colorscheme monokai
+
 let g:monokai_thick_border = 1
 map <C-n> :NERDTreeToggle<CR>
 let g:airline_theme='luna'
