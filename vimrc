@@ -96,6 +96,14 @@ omap / <Plug>(easymotion-tn)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 
+" Rails
+map gV :Eview<CR>
+map gC :Econtroller<CR>
+map gM :Emodel<CR>
+map gH :Ehelper<CR>
+map gJ :Ejavascript<CR>
+map gS :Estylesheet<CR>
+
 set g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
