@@ -25,6 +25,10 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'honza/vim-snippets'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'slim-template/vim-slim'
+Plugin 'rhysd/wandbox-vim'
+Plugin 'tomasr/molokai'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
@@ -54,14 +58,16 @@ set laststatus=2
 set linespace=2
 
 set guifont=Inconsolata-gforPowerline\ 11
+let g:molokai_original = 1
 set background=dark
+"colorscheme molokai
 "colorscheme luna
-colorscheme molokai
 "colorscheme vimbrant
 "colorscheme railscasts
 "colorscheme vimbrant
 "colorscheme solarized
 "colorscheme monokai
+colorscheme gruvbox
 
 let g:monokai_thick_border = 1
 map <C-n> :NERDTreeToggle<CR>
@@ -89,7 +95,6 @@ nnoremap <A-7> 7gt
 nnoremap <A-8> 8gt
 nnoremap <A-9> 9gt
 nnoremap <A-0> 10gt
-
 " hotkey Easymotion Tabs
 map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -104,6 +109,12 @@ map gH :Ehelper<CR>
 map gJ :Ejavascript<CR>
 map gS :Estylesheet<CR>
 
-set g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
+let g:multi_cursor_next_key='<C-m>'
+let g:multi_cursor_start_key='<C-m>'
+let g:multi_cursor_start_word_key='g<C-m>'
+
