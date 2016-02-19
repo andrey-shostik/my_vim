@@ -64,10 +64,10 @@ set background=dark
 "colorscheme luna
 "colorscheme vimbrant
 "colorscheme railscasts
-"colorscheme vimbrant
+colorscheme vimbrant
 "colorscheme solarized
 "colorscheme monokai
-colorscheme gruvbox
+"colorscheme gruvbox
 
 let g:monokai_thick_border = 1
 map <C-n> :NERDTreeToggle<CR>
@@ -117,4 +117,4 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:multi_cursor_next_key='<C-m>'
 let g:multi_cursor_start_key='<C-m>'
 let g:multi_cursor_start_word_key='g<C-m>'
-
+map <C-c> :Wandbox<CR>
