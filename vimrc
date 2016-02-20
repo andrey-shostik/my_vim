@@ -11,72 +11,74 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'xuyuanp/nerdtree-git-plugin'
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree' " Best explorer vim
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-rails'
 Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim' " Easy searcing in explorer
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-Plugin 'Raimondi/delimitMate'
-Plugin 'ervandew/supertab'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'honza/vim-snippets'
+Plugin 'Raimondi/delimitMate'
+Plugin 'ervandew/supertab' " What is tabs
+Plugin 'easymotion/vim-easymotion' " Easy searching in document
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'slim-template/vim-slim'
 Plugin 'rhysd/wandbox-vim'
-Plugin 'tomasr/molokai'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'morhetz/gruvbox'
+Plugin 'tomasr/molokai' " Theme
+Plugin 'terryma/vim-multiple-cursors' " a lot of cursor, touch ctrl-m
+Plugin 'morhetz/gruvbox' " Autocompile, touch ctrl-c
 
 call vundle#end()
 filetype plugin indent on
 
+" Custom vim
 set linebreak
 set clipboard=unnamed
 set clipboard=unnamedplus
-set guioptions-=m "remove menu bar
-set guioptions-=T "remove toolbar
-set guioptions-=r "remove right-hand scroll bar
-set guioptions-=L "remove left-hand scroll bar
-set cursorline
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set smarttab
-set expandtab
-set autoindent
-set smartindent
-set nobackup
-set nowritebackup
 set noswapfile
 set encoding=utf8
-"set nu
+set nu
 set rnu
 set laststatus=2
 set linespace=2
 
-set guifont=Inconsolata-gforPowerline\ 11
-let g:molokai_original = 1
+" Hide scrolls
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+set laststatus=2
+
+" Airline configuration
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme = 'luna'
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+
+" Gui settings
+set guifont=Inconsolata-gforPowerline\ 10
 set background=dark
+let g:molokai_original = 1
 "colorscheme molokai
 "colorscheme luna
-"colorscheme vimbrant
 "colorscheme railscasts
 colorscheme vimbrant
 "colorscheme solarized
 "colorscheme monokai
 "colorscheme gruvbox
 
-let g:monokai_thick_border = 1
-map <C-n> :NERDTreeToggle<CR>
-let g:airline_theme='luna'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" hotkey Nerdtree Tabs
+" Hotkey Nerdtree Tabs
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
@@ -95,7 +97,8 @@ nnoremap <A-7> 7gt
 nnoremap <A-8> 8gt
 nnoremap <A-9> 9gt
 nnoremap <A-0> 10gt
-" hotkey Easymotion Tabs
+
+" Hotkey Easymotion Tabs
 map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map n <Plug>(easymotion-next)
@@ -109,12 +112,13 @@ map gH :Ehelper<CR>
 map gJ :Ejavascript<CR>
 map gS :Estylesheet<CR>
 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-
+" My change in multi_cursor hotkey
 let g:multi_cursor_next_key='<C-m>'
 let g:multi_cursor_start_key='<C-m>'
 let g:multi_cursor_start_word_key='g<C-m>'
+
+" Other osettings
 map <C-c> :Wandbox<CR>
+map <C-s> :w<CR>
+
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
