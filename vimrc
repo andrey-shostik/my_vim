@@ -25,13 +25,14 @@ Plugin 'ervandew/supertab' " What is tabs
 Plugin 'easymotion/vim-easymotion' " Easy searching in document
 Plugin 'slim-template/vim-slim'
 Plugin 'terryma/vim-multiple-cursors' " a lot of cursor, touch ctrl-m
-
+Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 filetype plugin indent on
 
 " Gui settings
 let g:airline_theme = 'luna'
-set guifont=Inconsolata-gforPowerline\ 10
+set guifont=Inconsolata-g\ for\ Powerline\ 10
+
 set background=dark
 colorscheme vimbrant
 "colorscheme molokai
