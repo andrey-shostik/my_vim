@@ -30,6 +30,7 @@ call vundle#end()
 filetype plugin indent on
 
 " Gui settings
+let g:airline_theme = 'luna'
 set guifont=Inconsolata-gforPowerline\ 10
 set background=dark
 colorscheme vimbrant
@@ -69,7 +70,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'luna'
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
