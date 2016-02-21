@@ -38,7 +38,7 @@ set guifont=Inconsolata-gforPowerline\ 10
 set background=dark
 colorscheme vimbrant
 "colorscheme molokai
-"let g:molokai_original = 1
+let g:molokai_original = 1
 "colorscheme luna
 "colorscheme railscasts
 "colorscheme solarized
