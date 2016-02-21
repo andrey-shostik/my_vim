@@ -33,19 +33,30 @@ Plugin 'morhetz/gruvbox' " Autocompile, touch ctrl-c
 call vundle#end()
 filetype plugin indent on
 
+" Gui settings
+set guifont=Inconsolata-gforPowerline\ 10
+set background=dark
+colorscheme vimbrant
+"colorscheme molokai
+"let g:molokai_original = 1
+"colorscheme luna
+"colorscheme railscasts
+"colorscheme solarized
+"colorscheme monokai
+"colorscheme gruvbox
+
 " Custom vim
 set linebreak
 set clipboard=unnamed
 set clipboard=unnamedplus
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set noswapfile
 set encoding=utf8
 set nu
 set rnu
-set laststatus=2
-set linespace=2
+set expandtab ts=2 sw=2 ai
+set showtabline=2
+set noswapfile
+set list
+set listchars=trail:•
 
 " Hide scrolls
 set guioptions-=m
@@ -65,18 +76,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme = 'luna'
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
-
-" Gui settings
-set guifont=Inconsolata-gforPowerline\ 10
-set background=dark
-let g:molokai_original = 1
-"colorscheme molokai
-"colorscheme luna
-"colorscheme railscasts
-colorscheme vimbrant
-"colorscheme solarized
-"colorscheme monokai
-"colorscheme gruvbox
 
 " Hotkey Nerdtree Tabs
 nnoremap <C-S-tab> :tabprevious<CR>
@@ -119,6 +118,5 @@ let g:multi_cursor_start_word_key='g<C-m>'
 
 " Other osettings
 map <C-c> :Wandbox<CR>
-map <C-s> :w<CR>
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
