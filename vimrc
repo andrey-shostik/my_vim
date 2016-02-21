@@ -23,12 +23,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate'
 Plugin 'ervandew/supertab' " What is tabs
 Plugin 'easymotion/vim-easymotion' " Easy searching in document
-Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'slim-template/vim-slim'
-Plugin 'rhysd/wandbox-vim'
-Plugin 'tomasr/molokai' " Theme
 Plugin 'terryma/vim-multiple-cursors' " a lot of cursor, touch ctrl-m
-Plugin 'morhetz/gruvbox' " Autocompile, touch ctrl-c
 
 call vundle#end()
 filetype plugin indent on
@@ -117,6 +113,4 @@ let g:multi_cursor_start_key='<C-m>'
 let g:multi_cursor_start_word_key='g<C-m>'
 
 " Other osettings
-map <C-c> :Wandbox<CR>
-
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
