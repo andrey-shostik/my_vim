@@ -124,3 +124,6 @@ let g:multi_cursor_start_key='<C-m>'
 let g:multi_cursor_start_word_key='g<C-m>'
 
 " Other settings
+let g:enable_bold_font = 1
+set linespace=10
+autocmd vimrc BufWritePre * :call s:StripTrailingWhitespaces()                  "Auto-remove trailing spaces
