@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'bling/vim-airline'
   Plug 'kien/ctrlp.vim' " Easy searcing in explorer
+  Plug 'd11wtq/ctrlp_bdelete.vim'
   Plug 'easymotion/vim-easymotion' " Easy searching in document
   Plug 'slim-template/vim-slim'
   Plug 'terryma/vim-multiple-cursors' " a lot of cursor, touch ctrl-m
@@ -31,6 +32,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'p0deje/vim-ruby-interpolation'
   Plug 'vim-scripts/Gundo'
+  Plug 'mhinz/vim-startify'
 
 call plug#end()
 filetype plugin indent on
@@ -38,14 +40,7 @@ filetype plugin indent on
 " Gui settings
 set guifont=Inconsolata-g\ for\ Powerline\ 10
 set background=dark
-"colorscheme hybrid
 colorscheme vimbrant
-"colorscheme molokai
-"let g:molokai_original = 1
-"colorscheme luna
-"colorscheme railscasts
-"colorscheme monokai
-"colorscheme gruvbox
 
 " Custom vim
 set linebreak
@@ -59,6 +54,8 @@ set showtabline=2
 set noswapfile
 set list
 set listchars=trail:•
+set t_Co=256                                                                    "Set 256 colors
+set scrolloff=7                                                                 "Start scrolling when we're 3 lines away from margins
 
 " Hide scrolls
 set guioptions-=m
@@ -66,6 +63,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 set laststatus=2
+set linespace=2
 
 " FuzzyFinder as Ctrl-o
 map <C-o> :FufCoverageFile<CR>
@@ -86,10 +84,12 @@ let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme = 'luna'
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
-" Hotkey Nerdtree Tabs
+" Clean spaces during saving
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Hotkey Nerdtree setting
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
@@ -98,6 +98,10 @@ nnoremap <A-2> 2gt
 nnoremap <A-3> 3gt
 nnoremap <A-0> 10gt
 
+let g:NERDTreeChDirMode = 2                                                     "Always change the root directory
+let g:NERDTreeMinimalUI = 1                                                     "Disable help text and bookmark title
+let g:NERDTreeIgnore=['\.git$', '\.sass-cache$', '\.vagrant', '\.idea']
+
 " Rails
 map gV :Eview<CR>
 map gC :Econtroller<CR>
@@ -105,6 +109,10 @@ map gM :Emodel<CR>
 map gH :Ehelper<CR>
 map gJ :Ejavascript<CR>
 map gS :Estylesheet<CR>
+
+" Select and move line
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Easy motion
 map  / <Plug>(easymotion-sn)
@@ -123,7 +131,9 @@ let g:multi_cursor_next_key='<C-m>'
 let g:multi_cursor_start_key='<C-m>'
 let g:multi_cursor_start_word_key='g<C-m>'
 
+" Map save to Ctrl + S
+map <c-s> :w<CR>
+imap <c-s> <C-o>:w<CR>
+
 " Other settings
 let g:enable_bold_font = 1
-set linespace=10
-autocmd vimrc BufWritePre * :call s:StripTrailingWhitespaces()                  "Auto-remove trailing spaces
