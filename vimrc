@@ -12,7 +12,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'bling/vim-airline'
   Plug 'kien/ctrlp.vim' " Easy searcing in explorer
-  Plug 'd11wtq/ctrlp_bdelete.vim'
   Plug 'easymotion/vim-easymotion' " Easy searching in document
   Plug 'slim-template/vim-slim'
   Plug 'terryma/vim-multiple-cursors' " a lot of cursor, touch ctrl-m
@@ -23,23 +22,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'thoughtbot/vim-rspec'
   Plug 'rhysd/vim-crystal'
   Plug 'Raimondi/delimitMate'
-
-  Plug 'JulesWang/css.vim'
-  Plug 'cakebaker/scss-syntax.vim'
-  Plug 'othree/html5-syntax.vim'
-  Plug 'othree/html5.vim'
-  Plug 'kchmck/vim-coffee-script'
-  Plug 'pangloss/vim-javascript'
   Plug 'p0deje/vim-ruby-interpolation'
   Plug 'vim-scripts/Gundo'
   Plug 'mhinz/vim-startify'
+  Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 filetype plugin indent on
 
 " Gui settings
-set guifont=Inconsolata-g\ for\ Powerline\ 10
-set background=dark
+set guifont=Inconsolata-g\ for\ Powerline\ 9
 colorscheme vimbrant
 
 " Custom vim
@@ -55,7 +47,7 @@ set noswapfile
 set list
 set listchars=trail:•
 set t_Co=256                                                                    "Set 256 colors
-set scrolloff=7                                                                 "Start scrolling when we're 3 lines away from margins
+set scrolloff=5                                                                 "Start scrolling when we're 3 lines away from margins
 
 " Hide scrolls
 set guioptions-=m
@@ -109,6 +101,7 @@ map gM :Emodel<CR>
 map gH :Ehelper<CR>
 map gJ :Ejavascript<CR>
 map gS :Estylesheet<CR>
+map gk :Gitv<CR>
 
 " Select and move line
 vnoremap J :m '>+1<CR>gv=gv
@@ -137,3 +130,4 @@ imap <c-s> <C-o>:w<CR>
 
 " Other settings
 let g:enable_bold_font = 1
+nnoremap <F5> :GundoToggle<CR>
