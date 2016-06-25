@@ -1,42 +1,43 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
-  Plug 'MarcWeber/vim-addon-mw-utils'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'gregsexton/gitv'
-  Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-  Plug 'vim-ruby/vim-ruby'
-  Plug 'xuyuanp/nerdtree-git-plugin'
+  Plug 'gregsexton/gitv' " use :Gitv show beautiful commit history
+  " Plug 'rstacruz/sparkup' " A parser for a condensed HTML format
+  Plug 'rstacruz/sparkup', {'rtp': 'vim/'} " A parser for a condensed HTML format
   Plug 'scrooloose/nerdtree' " Best explorer vim
-  Plug 'scrooloose/syntastic'
-  Plug 'tpope/vim-rails'
-  Plug 'tpope/vim-fugitive'
-  Plug 'bling/vim-airline'
+  Plug 'scrooloose/syntastic' " Support more syntax
+  Plug 'vim-ruby/vim-ruby' " Support ruby
+  Plug 'tpope/vim-rails' " Support rails
+  Plug 'tpope/vim-fugitive' " Git possibility in vim
+  Plug 'xuyuanp/nerdtree-git-plugin' " Git ico in nerdtree and more
+  Plug 'bling/vim-airline' " Status powerline
   Plug 'kien/ctrlp.vim' " Easy searcing in explorer
   Plug 'easymotion/vim-easymotion' " Easy searching in document
-  Plug 'slim-template/vim-slim'
-  Plug 'terryma/vim-multiple-cursors' " a lot of cursor, touch ctrl-m
-  Plug 'ryanoasis/vim-devicons' " one problem in <m> nerd tree
-  Plug 'FroSTD/frostd-snippets.vim'
-  Plug 'FuzzyFinder'
-  Plug 'L9'
-  Plug 'thoughtbot/vim-rspec'
-  Plug 'rhysd/vim-crystal'
-  Plug 'Raimondi/delimitMate'
-  Plug 'p0deje/vim-ruby-interpolation'
-  Plug 'vim-scripts/Gundo'
-  Plug 'mhinz/vim-startify'
-  Plug 'kchmck/vim-coffee-script'
+  Plug 'slim-template/vim-slim' " Support slim
+  Plug 'terryma/vim-multiple-cursors' " A lot of cursor, touch ctrl-m
+  Plug 'ryanoasis/vim-devicons' " One problem in <m> nerd tree
+  " Plug 'FroSTD/frostd-snippets.vim' "Den snippet
+  Plug 'L9' " For correct work vim
+  Plug 'p0deje/vim-ruby-interpolation' " Easy interpolation
+  Plug 'mhinz/vim-startify' " Fast history home page
+  " Plug 'garbas/vim-snipmate' " snippet god
+  Plug 'gregsexton/matchtag' " Improve show html
+  Plug 'jiangmiao/auto-pairs' " auto close some brackets
+  " Plug 'tpope/vim-surround' " auto close some brackets
 
 call plug#end()
 filetype plugin indent on
 
 " Gui settings
 set guifont=Inconsolata-g\ for\ Powerline\ 9
-colorscheme vimbrant
+color vimbrant
+    " base16-railscasts
+    " hybrid_material
+    " luna
+    " molokai
+    " vimbrant
 
-" Custom vim
+" Default vim config
 set linebreak
-set clipboard=unnamed
 set clipboard=unnamedplus
 set encoding=utf8
 set nu
@@ -45,9 +46,12 @@ set expandtab ts=2 sw=2 ai
 set showtabline=2
 set noswapfile
 set list
-set listchars=trail:•
-set t_Co=256                                                                    "Set 256 colors
-set scrolloff=5                                                                 "Start scrolling when we're 3 lines away from margins
+set listchars=trail:• " ,eol:¬ ,extends:❯,precedes:❮,tab:▸\
+highlight SpecialKey ctermbg=none
+set t_Co=256                                                                    " Set 256 colors
+set scrolloff=5                                                                 " Start scrolling when we're 5 lines away from margins
+let g:enable_bold_font = 1
+set showbreak=↪
 
 " Hide scrolls
 set guioptions-=m
@@ -56,9 +60,6 @@ set guioptions-=r
 set guioptions-=L
 set laststatus=2
 set linespace=2
-
-" FuzzyFinder as Ctrl-o
-map <C-o> :FufCoverageFile<CR>
 
 " CtrlP
 nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
@@ -78,10 +79,10 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme = 'luna'
 map <C-n> :NERDTreeToggle<CR>
 
-" Clean spaces during saving
+" Kill trailing spaces on save file
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Hotkey Nerdtree setting
+" Nerdtree setting
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
@@ -94,7 +95,19 @@ let g:NERDTreeChDirMode = 2                                                     
 let g:NERDTreeMinimalUI = 1                                                     "Disable help text and bookmark title
 let g:NERDTreeIgnore=['\.git$', '\.sass-cache$', '\.vagrant', '\.idea']
 
-" Rails
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+" Rails go model/view/controller
 map gV :Eview<CR>
 map gC :Econtroller<CR>
 map gM :Emodel<CR>
@@ -127,7 +140,3 @@ let g:multi_cursor_start_word_key='g<C-m>'
 " Map save to Ctrl + S
 map <c-s> :w<CR>
 imap <c-s> <C-o>:w<CR>
-
-" Other settings
-let g:enable_bold_font = 1
-nnoremap <F5> :GundoToggle<CR>
