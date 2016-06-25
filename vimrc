@@ -47,7 +47,6 @@ set showtabline=2
 set noswapfile
 set list
 set listchars=trail:• " ,eol:¬ ,extends:❯,precedes:❮,tab:▸\
-highlight SpecialKey ctermbg=none
 set t_Co=256                                                                    " Set 256 colors
 set scrolloff=5                                                                 " Start scrolling when we're 5 lines away from margins
 let g:enable_bold_font = 1
