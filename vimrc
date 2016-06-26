@@ -22,7 +22,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs' " auto close some brackets
   Plug 'godlygeek/tabular' " alignment plugin
   Plug 'valloric/youcompleteme' " Autocomplete
-  Plug 'gorodinskiy/vim-coloresque'
+  Plug 'gorodinskiy/vim-coloresque' " color in html and css
+  Plug 'rstacruz/sparkup' " html parser
+
 call plug#end()
 
 " Gui settings
