@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Valloric/MatchTagAlways' "Improve show html
   Plug 'jiangmiao/auto-pairs' " auto close some brackets
   Plug 'godlygeek/tabular' " alignment plugin
-  Plug 'valloric/youcompleteme' " Autocomplete
+  " Plug 'valloric/youcompleteme' " Autocomplete
   Plug 'gorodinskiy/vim-coloresque' " color in html and css
   Plug 'rstacruz/sparkup' " html parser
   Plug 'SirVer/ultisnips'
