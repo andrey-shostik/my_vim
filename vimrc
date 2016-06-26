@@ -14,7 +14,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'slim-template/vim-slim' " Support slim
   Plug 'terryma/vim-multiple-cursors' " A lot of cursor, touch ctrl-m
   Plug 'ryanoasis/vim-devicons' " icons
-  Plug 'FroSTD/frostd-snippets.vim' "Den sAutocompleteippet
+  " Plug 'FroSTD/frostd-snippets.vim' "Den sAutocompleteippet
   Plug 'L9' " For correct work vim
   Plug 'p0deje/vim-ruby-interpolation' " Easy interpolation
   Plug 'mhinz/vim-startify' " Fast history home page
@@ -24,6 +24,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'valloric/youcompleteme' " Autocomplete
   Plug 'gorodinskiy/vim-coloresque' " color in html and css
   Plug 'rstacruz/sparkup' " html parser
+  Plug 'SirVer/ultisnips'
+  " Snippets are separated from the engine. Snippets for ultisnips
+  Plug 'honza/vim-snippets'
+  Plug 'chrisgillis/vim-bootstrap3-snippets', {'for' : 'html'}
 
 call plug#end()
 
