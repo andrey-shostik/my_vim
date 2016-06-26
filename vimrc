@@ -1,31 +1,29 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
-  Plug 'gregsexton/gitv' " use :Gitv show beautiful commit history
-  " Plug 'rstacruz/sparkup' " A parser for a condensed HTML format
-  Plug 'rstacruz/sparkup', {'rtp': 'vim/'} " A parser for a condensed HTML format
   Plug 'scrooloose/nerdtree' " Best explorer vim
   Plug 'scrooloose/syntastic' " Support more syntax
   Plug 'vim-ruby/vim-ruby' " Support ruby
   Plug 'tpope/vim-rails' " Support rails
   Plug 'tpope/vim-fugitive' " Git possibility in vim
+  Plug 'gregsexton/gitv' " use :Gitv show beautiful commit history
+  Plug 'airblade/vim-gitgutter' " git show added line
   Plug 'xuyuanp/nerdtree-git-plugin' " Git ico in nerdtree and more
   Plug 'bling/vim-airline' " Status powerline
   Plug 'kien/ctrlp.vim' " Easy searcing in explorer
   Plug 'easymotion/vim-easymotion' " Easy searching in document
   Plug 'slim-template/vim-slim' " Support slim
   Plug 'terryma/vim-multiple-cursors' " A lot of cursor, touch ctrl-m
-  Plug 'ryanoasis/vim-devicons' " One problem in <m> nerd tree
-  " Plug 'FroSTD/frostd-snippets.vim' "Den snippet
+  Plug 'ryanoasis/vim-devicons' " icons
+  Plug 'FroSTD/frostd-snippets.vim' "Den sAutocompleteippet
   Plug 'L9' " For correct work vim
   Plug 'p0deje/vim-ruby-interpolation' " Easy interpolation
   Plug 'mhinz/vim-startify' " Fast history home page
-  " Plug 'garbas/vim-snipmate' " snippet god
-  Plug 'gregsexton/matchtag' " Improve show html
+  Plug 'Valloric/MatchTagAlways' "Improve show html
   Plug 'jiangmiao/auto-pairs' " auto close some brackets
-  " Plug 'tpope/vim-surround' " auto close some brackets
-
+  Plug 'godlygeek/tabular' " alignment plugin
+  " Plug 'valloric/youcompleteme' " Autocomplete
+  Plug 'gorodinskiy/vim-coloresque'
 call plug#end()
-filetype plugin indent on
 
 " Gui settings
 set guifont=Inconsolata-g\ for\ Powerline\ 9
@@ -93,18 +91,6 @@ nnoremap <A-0> 10gt
 let g:NERDTreeChDirMode = 2                                                     "Always change the root directory
 let g:NERDTreeMinimalUI = 1                                                     "Disable help text and bookmark title
 let g:NERDTreeIgnore=['\.git$', '\.sass-cache$', '\.vagrant', '\.idea']
-
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
 
 " Rails go model/view/controller
 map gV :Eview<CR>
