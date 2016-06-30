@@ -14,20 +14,22 @@ call plug#begin('~/.vim/plugged')
   Plug 'slim-template/vim-slim' " Support slim
   Plug 'terryma/vim-multiple-cursors' " A lot of cursor, touch ctrl-m
   Plug 'ryanoasis/vim-devicons' " icons
-  " Plug 'FroSTD/frostd-snippets.vim' "Den sAutocompleteippet
+  Plug 'FroSTD/frostd-snippets.vim' "Den sAutocompleteippet
   Plug 'L9' " For correct work vim
   Plug 'p0deje/vim-ruby-interpolation' " Easy interpolation
   Plug 'mhinz/vim-startify' " Fast history home page
   Plug 'Valloric/MatchTagAlways' "Improve show html
   Plug 'jiangmiao/auto-pairs' " auto close some brackets
   Plug 'godlygeek/tabular' " alignment plugin
-  " Plug 'valloric/youcompleteme' " Autocomplete
   Plug 'gorodinskiy/vim-coloresque' " color in html and css
-  Plug 'rstacruz/sparkup' " html parser
-  Plug 'SirVer/ultisnips'
+  " Plug 'valloric/youcompleteme' " Autocomplete
+  " Plug 'rstacruz/sparkup' " html parser
+  " Plug 'SirVer/ultisnips'
   " Snippets are separated from the engine. Snippets for ultisnips
-  Plug 'honza/vim-snippets'
-  Plug 'chrisgillis/vim-bootstrap3-snippets', {'for' : 'html'}
+  " Plug 'honza/vim-snippets'
+  " Plug 'chrisgillis/vim-bootstrap3-snippets', {'for' : 'html'}
+  Plug 'stephpy/vim-php-cs-fixer'
+  Plug 'stephpy/vim-phpdoc'
 
 call plug#end()
 
@@ -39,6 +41,9 @@ color vimbrant
     " luna
     " molokai
     " vimbrant
+    " one
+    " hybrid
+    " base16-mon
 
 " Default vim config
 set linebreak
@@ -50,11 +55,12 @@ set expandtab ts=2 sw=2 ai
 set showtabline=2
 set noswapfile
 set list
-set listchars=trail:• " ,eol:¬ ,extends:❯,precedes:❮,tab:▸\
-set t_Co=256                                                                    " Set 256 colors
+set listchars=trail:• " ,eol:¬,extends:❯,precedes:❮,tab:▸\
 set scrolloff=5                                                                 " Start scrolling when we're 5 lines away from margins
+set term=screen-256color
 let g:enable_bold_font = 1
 set showbreak=↪
+set background=dark
 
 " Hide scrolls
 set guioptions-=m
@@ -62,7 +68,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 set laststatus=2
-set linespace=2
+set linespace=3
 
 " CtrlP
 nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
@@ -71,7 +77,6 @@ nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " Airline configuration
-set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -79,7 +84,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'luna'
+let g:airline_theme = 'luna' " one
 map <C-n> :NERDTreeToggle<CR>
 
 " Kill trailing spaces on save file
@@ -131,3 +136,7 @@ let g:multi_cursor_start_word_key='g<C-m>'
 " Map save to Ctrl + S
 map <c-s> :w<CR>
 imap <c-s> <C-o>:w<CR>
+
+vmap <leader>t :Tab /
+
+let g:pdv_cfg_Author = "Stephane PY <py.stephane1@gmail.com>"
