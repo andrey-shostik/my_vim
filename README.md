@@ -6,4 +6,6 @@
 You need have installed php, for ubuntu
 
      sudo apt-get install php5-cli1
-after, open terminal and run php MyArray.php
+after, open terminal and run 
+
+     php MyArray.php
